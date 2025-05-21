@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Users Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-github"></i> GitHub Users Explorer</h1>
+            <p class="subtitle">Discover and explore GitHub users and their repositories</p>
+        </header>
+        
+        <div class="search-container">
+            <form id="search-form">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Enter GitHub username...">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <select id="sort-select">
+                <option value="login">Sort by Username</option>
+                <option value="repos">Sort by Repositories</option>
+                <option value="followers">Sort by Followers</option>
+            </select>
+            <div class="view-toggle">
+                <button id="grid-view" class="active"><i class="fas fa-th"></i></button>
+                <button id="list-view"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+
+        <div id="users-list" class="users-grid"></div>
+        
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="user-details"></div>
+            <div id="user-repos" class="repos-container">
+                <h3>Recent Repositories</h3>
+                <div id="repos-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html> 
