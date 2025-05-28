@@ -8,8 +8,7 @@ const Header = ({ user }) => {
       <Paper sx={{ p: 2, display: 'flex', alignItems: 'center', bgcolor: '#d2f5c7', borderRadius: 3, minWidth: 320 }}>
         <GitHubIcon sx={{ fontSize: 48, mr: 2 }} />
         <Box>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>Welcome to</Typography>
-          <Typography variant="h5" sx={{ fontWeight: 700, color: '#4349a3' }}>GitCat</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>GitClient</Typography>
         </Box>
       </Paper>
       <Paper sx={{ p: 2, bgcolor: '#7d85d6', color: 'white', borderRadius: 3, minWidth: 220, textAlign: 'center' }}>

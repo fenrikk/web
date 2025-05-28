@@ -19,9 +19,8 @@ const SideMenu = ({ user }) => {
       flexDirection: 'column',
       alignItems: 'center',
       py: 3,
-      borderTopLeftRadius: 24,
       borderBottomLeftRadius: 24,
-      boxShadow: 2,
+      boxShadow: '2px 0 8px 0 rgba(67,73,163,0.08)',
     }}>
       {/* UserInfo */}
       <UserInfo user={user} />
@@ -66,7 +65,6 @@ const SideMenu = ({ user }) => {
         </ListItem>
       </List>
       <Box sx={{ flexGrow: 1 }} />
-      <Typography variant="caption" sx={{ opacity: 0.7, mb: 1 }}>GL JS 2020</Typography>
     </Box>
   );
 };

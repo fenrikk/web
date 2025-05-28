@@ -19,30 +19,30 @@ const FollowersList = ({ username }) => {
   const filtered = followers.filter(f => f.login.toLowerCase().includes(filter.toLowerCase()));
 
   return (
-    <Box>
-      <Typography variant="h6" sx={{ mb: 2 }}>Followers</Typography>
+    <Box sx={{ bgcolor: '#fff', borderRadius: 3, p: 3, boxShadow: '0 2px 8px 0 rgba(67,73,163,0.04)' }}>
+      <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>Followers</Typography>
       <TextField
         label="Filter by login"
         variant="outlined"
         size="small"
         value={filter}
         onChange={e => setFilter(e.target.value)}
-        sx={{ mb: 2 }}
+        sx={{ mb: 3, width: '100%', maxWidth: 320 }}
       />
       {loading ? 'Loading...' : (
         <List>
           {filtered.map(follower => (
             <React.Fragment key={follower.id}>
-              <ListItem button component="a" href={follower.html_url} target="_blank">
+              <ListItem button component="a" href={follower.html_url} target="_blank" sx={{ borderRadius: 2, mb: 1, px: 2 }}>
                 <Avatar src={follower.avatar_url} sx={{ mr: 2 }} />
                 <ListItemText
-                  primary={follower.login}
+                  primary={<Typography sx={{ fontWeight: 500 }}>{follower.login}</Typography>}
                 />
               </ListItem>
               <Divider />
             </React.Fragment>
           ))}
-          {filtered.length === 0 && <Typography>No followers found.</Typography>}
+          {filtered.length === 0 && <Typography sx={{ mt: 2 }}>No followers found.</Typography>}
         </List>
       )}
     </Box>

@@ -19,31 +19,31 @@ const ReposList = ({ username }) => {
   const filtered = repos.filter(r => r.name.toLowerCase().includes(filter.toLowerCase()));
 
   return (
-    <Box>
-      <Typography variant="h6" sx={{ mb: 2 }}>Repositories</Typography>
+    <Box sx={{ bgcolor: '#fff', borderRadius: 3, p: 3, boxShadow: '0 2px 8px 0 rgba(67,73,163,0.04)' }}>
+      <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>Repositories</Typography>
       <TextField
         label="Filter by name"
         variant="outlined"
         size="small"
         value={filter}
         onChange={e => setFilter(e.target.value)}
-        sx={{ mb: 2 }}
+        sx={{ mb: 3, width: '100%', maxWidth: 320 }}
       />
       {loading ? 'Loading...' : (
         <List>
           {filtered.map(repo => (
             <React.Fragment key={repo.id}>
-              <ListItem button component="a" href={repo.html_url} target="_blank">
+              <ListItem button component="a" href={repo.html_url} target="_blank" sx={{ borderRadius: 2, mb: 1, px: 2 }}>
                 <Avatar sx={{ bgcolor: '#4349a3', mr: 2 }}><FolderIcon /></Avatar>
                 <ListItemText
-                  primary={repo.name}
+                  primary={<Typography sx={{ fontWeight: 500 }}>{repo.name}</Typography>}
                   secondary={repo.description}
                 />
               </ListItem>
               <Divider />
             </React.Fragment>
           ))}
-          {filtered.length === 0 && <Typography>No repositories found.</Typography>}
+          {filtered.length === 0 && <Typography sx={{ mt: 2 }}>No repositories found.</Typography>}
         </List>
       )}
     </Box>
